@@ -5,15 +5,15 @@ on:
     branches: [master]
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@master
     - uses: azure/docker-login@v1
       with:
           login-server: bootestdeploycicd.azurecr.io
           username: ${{ secrets.ACR_USERNAME }}
           password: ${{ secrets.ACR_PASSWORD }}
     - run: |
-          docker build . -t bootestdeploycicd.azurecr.io/cicddemoapi1:latest
-          docker push bootestdeploycicd.azurecr.io/cicddemoapi1:latest
+          docker build . -t bootestdeploycicd.azurecr.io/cicddemoapi1:${{ github.sha }}
+          docker push bootestdeploycicd.azurecr.io/cicddemoapi1:${{ github.sha }}
