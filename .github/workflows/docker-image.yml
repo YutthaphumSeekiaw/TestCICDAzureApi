@@ -15,5 +15,5 @@ jobs:
           username: ${{ secrets.ACR_USERNAME }}
           password: ${{ secrets.ACR_PASSWORD }}
     - run: |
-          docker build . -t bootestdeploycicd.azurecr.io/cicddemoapi1:latest
-          docker push bootestdeploycicd.azurecr.io/cicddemoapi1:latest
+          docker build . -t bootestdeploycicd.azurecr.io/cicddemoapi1
+          docker push bootestdeploycicd.azurecr.io/cicddemoapi1
