@@ -1,0 +1,19 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: azure/docker-login@v1
+      with:
+          login-server: bootestdeploycicd.azurecr.io
+          username: ${{ secrets.ACR_USERNAME }}
+          password: ${{ secrets.ACR_PASSWORD }}
+    - run: |
+          docker build . -t bootestdeploycicd.azurecr.io/cicddemoapi1:latest
+          docker push bootestdeploycicd.azurecr.io/cicddemoapi1:latest
