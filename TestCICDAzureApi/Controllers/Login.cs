@@ -13,7 +13,7 @@ namespace TestCICDAzureApi.Controllers
     {
         private static readonly string[] Summaries = new[]
         {
-            "55555", "666", "77777", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching","AAA"
+            "9999", "999999", "9999999", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching","AAA"
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
